@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Giriş Ekranı</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="login-screen" class="centered-panel">
+    <h1>Giriş Ekranı</h1>
+    <form id="login-form" class="form-grid">
+      <label for="username">Kullanıcı Adı</label>
+      <input id="username" name="username" required />
+      <label for="password">Şifre</label>
+      <input id="password" name="password" type="password" required />
+      <button type="submit" class="primary">Giriş</button>
+      <p id="login-error" class="error-text"></p>
+    </form>
+  </div>
+
+  <div id="app" class="app" hidden>
+    <header class="app-header">
+      <div>
+        <div class="app-title">STS-SpindleTakipSistemi</div>
+      </div>
+      <div id="live-clock" class="clock"></div>
+    </header>
+
+    <div class="tabs">
+      <button class="tab-button active" data-tab="spindle-tab">Spindle Takip Sistemi</button>
+      <button class="tab-button" data-tab="yedek-tab">Yedek Takip Sistemi</button>
+    </div>
+
+    <main class="tab-wrapper">
+      <section id="spindle-tab" class="tab-content active">
+        <div class="toolbar">
+          <div class="search-group">
+            <label for="spindle-search">Referans ID ile Ara:</label>
+            <input id="spindle-search" type="text" placeholder="Referans ID" />
+            <button id="spindle-search-btn" class="secondary">Ara</button>
+          </div>
+          <div class="action-group">
+            <button id="spindle-add" class="primary">Spindle Ekle</button>
+            <button id="spindle-edit" class="secondary">Seçileni Düzenle</button>
+            <button id="spindle-delete" class="danger">Seçileni Sil</button>
+          </div>
+        </div>
+        <div class="table-wrapper">
+          <table id="spindle-table">
+            <thead>
+              <tr>
+                <th>id</th>
+                <th>Referans ID</th>
+                <th>Çalışma Saati</th>
+                <th>Takılı Olduğu Makine</th>
+                <th>Makinaya Takıldığı Tarih</th>
+                <th>Son Güncelleme</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="yedek-tab" class="tab-content">
+        <div class="toolbar">
+          <div class="search-group">
+            <label for="yedek-search">Referans ID ile Ara:</label>
+            <input id="yedek-search" type="text" placeholder="Referans ID" />
+            <button id="yedek-search-btn" class="secondary">Ara</button>
+          </div>
+          <div class="action-group">
+            <button id="yedek-add" class="primary">Yedek Ekle</button>
+            <button id="yedek-edit" class="secondary">Seçileni Düzenle</button>
+            <button id="yedek-delete" class="danger">Seçileni Sil</button>
+          </div>
+        </div>
+        <div class="table-wrapper">
+          <table id="yedek-table">
+            <thead>
+              <tr>
+                <th>id</th>
+                <th>Referans ID</th>
+                <th>Açıklama</th>
+                <th>Tamirde mi</th>
+                <th>Bakıma Gönderilme</th>
+                <th>Geri Dönme</th>
+                <th>Söküldüğü Makine</th>
+                <th>Sökülme Tarihi</th>
+                <th>Son Güncelleme</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <div class="footer-actions">
+      <button id="export-btn" class="primary">Excel'e Aktar (CSV)</button>
+    </div>
+  </div>
+
+  <div id="modal" class="modal" hidden>
+    <div class="modal-content">
+      <h2 id="modal-title"></h2>
+      <form id="modal-form" class="form-grid"></form>
+      <div class="modal-actions">
+        <button id="modal-cancel" class="secondary">Vazgeç</button>
+        <button id="modal-submit" class="primary" type="submit" form="modal-form">Kaydet</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
