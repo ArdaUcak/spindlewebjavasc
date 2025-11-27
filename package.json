@@ -1,0 +1,14 @@
+{
+  "name": "spindlewebjavasc",
+  "version": "1.0.0",
+  "description": "Spindle ve yedek takip sistemi",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"No automated tests configured\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
